@@ -9,6 +9,7 @@ TagManager:
   - PlayerLeft
   - PlayerRight
   - Level Failed Canvas
+  - EventSystem
   layers:
   - Default
   - TransparentFX

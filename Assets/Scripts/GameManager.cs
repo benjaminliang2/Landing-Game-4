@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject levelCompleted;
     [SerializeField] GameObject startMenu;
 
-
     private static GameManager gm_Instance = null;
     private void Awake()
     {
@@ -45,9 +44,18 @@ public class GameManager : MonoBehaviour
     }
     public void LoadGame()
     {
-        Debug.Log("GameManager.LoadGame");
         GameData data = SaveSystem.LoadGameData();
-        level = data.level;
+
+        if (data != null)
+        {
+            level = data.level;
+            Debug.LogError("level data loaded successfully");
+        }
+        else
+        {
+            level = 1;
+        }
+        Debug.LogError(level);
         SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
 

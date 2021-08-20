@@ -70,9 +70,13 @@ public class LevelCompleted : MonoBehaviour
             rightHalf.GetComponent<RightLanded>().rightTouch)
         {
             LevelCompletedCanvas.enabled = true;
+            int highestLevel = 0;
             //Debug.LogError("Time Completed :" + Time.timeSinceLevelLoad);
             //this saves the highest level player has completed 
-            int highestLevel = SaveSystem.LoadGameData().level;
+            if (SaveSystem.LoadGameData() != null)
+            {
+               highestLevel = SaveSystem.LoadGameData().level;
+            }
             level = SceneManager.GetActiveScene().buildIndex;
 
             if (level > highestLevel)
