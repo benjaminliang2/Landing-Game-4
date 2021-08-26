@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public delegate void StartMenuClicked();
-    public static event StartMenuClicked OnStartMenuClicked;
+    //public static event StartMenuClicked OnStartMenuClicked;
 
     public int level;
     [SerializeField] GameObject player;

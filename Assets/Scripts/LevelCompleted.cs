@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelCompleted : MonoBehaviour
 {
     public delegate void CompletedLevel();
-    public static event CompletedLevel _completedLevel;
+    //public static event CompletedLevel _completedLevel;
     GameObject leftHalf;
     GameObject rightHalf;
     public int level;
+    private float count = 2.0f;
 
     //Timer - Variables
     private bool isRunning = false;
@@ -18,11 +20,17 @@ public class LevelCompleted : MonoBehaviour
     
 
     [SerializeField] Canvas LevelCompletedCanvas;
+    [SerializeField] Canvas TimerCanvas;
+    [SerializeField] Slider slider;
+    
+   
+
 
     void Start()
     {
         AssignGameObjects();
-        DisableLevelCompletedCanvas();
+        DisableCanvas();
+
     }
 
     // Update is called once per frame
@@ -45,9 +53,11 @@ public class LevelCompleted : MonoBehaviour
         if (leftHalf.GetComponent<LeftLanded>().leftTouch &&
             rightHalf.GetComponent<RightLanded>().rightTouch)
         {
+            TimerCanvas.enabled = true;
             TimerStart();
             Timer();
-            if (timerTime > 2.0)
+            slider.value = timerTime / count;
+            if (timerTime > count)
             {
                 LevelCompletedCanvas.enabled = true;
                 int highestLevel = 0;
@@ -71,6 +81,7 @@ public class LevelCompleted : MonoBehaviour
         else
         {
             TimerReset();
+            TimerCanvas.enabled = false;
         }
     }
 
@@ -79,9 +90,10 @@ public class LevelCompleted : MonoBehaviour
         LevelCompletedCanvas.enabled = false;
     }
 
-    public void DisableLevelCompletedCanvas()
+    public void DisableCanvas()
     {
         LevelCompletedCanvas.enabled = false;
+        TimerCanvas.enabled = false;
     }
 
     private void TimerStart()
