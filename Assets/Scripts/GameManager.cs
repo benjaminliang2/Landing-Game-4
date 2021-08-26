@@ -48,14 +48,13 @@ public class GameManager : MonoBehaviour
 
         if (data != null)
         {
-            level = data.level;
-            Debug.LogError("level data loaded successfully");
+            level = data.level + 1;
+            //Debug.LogError("level data loaded successfully");
         }
         else
         {
             level = 1;
         }
-        Debug.LogError(level);
         SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
 

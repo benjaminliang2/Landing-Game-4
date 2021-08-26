@@ -90,10 +90,13 @@ public class Player : MonoBehaviour
             PlayerLeftHalf.GetComponent<Rigidbody2D>().AddRelativeForce(Vector3.up * impulseForce, ForceMode2D.Impulse);
 
             leftThrustCoroutine = StartCoroutine(FireLeft());
+            PlayerLeftHalf.GetComponentInChildren<ParticleSystem>().Play();
         }
         if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(leftThrustCoroutine);
+            PlayerLeftHalf.GetComponentInChildren<ParticleSystem>().Stop();
+
         }
 
 
@@ -102,11 +105,15 @@ public class Player : MonoBehaviour
             PlayerRightHalf.GetComponent<Rigidbody2D>().AddRelativeForce(Vector3.up * impulseForce, ForceMode2D.Impulse);
 
             rightThrustCoroutine = StartCoroutine(FireRight());
+            PlayerRightHalf.GetComponentInChildren<ParticleSystem>().Play();
+
             //deathSFX.Play();
         }
         if (Input.GetButtonUp("Fire2"))
         {
             StopCoroutine(rightThrustCoroutine);
+            PlayerRightHalf.GetComponentInChildren<ParticleSystem>().Stop();
+
         }
 
     }

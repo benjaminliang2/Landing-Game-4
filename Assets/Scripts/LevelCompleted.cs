@@ -11,38 +11,14 @@ public class LevelCompleted : MonoBehaviour
     GameObject rightHalf;
     public int level;
 
+    //Timer - Variables
+    private bool isRunning = false;
+    private float startTime;
+    private float timerTime;
+    
+
     [SerializeField] Canvas LevelCompletedCanvas;
 
-    /* private bool _completedLevel = false;
-
-     public bool completedLevel
-     {
-         get
-         {
-             Debug.Log("GET is called");
-             return _completedLevel;
-         }
-         set
-         {
-             Debug.Log("SET is called");
-             _completedLevel = value;
-         }
-     }*/
-
-    /*private static LevelCompleted lc_Instance = null;
-    private void Awake()
-    {
-        if (lc_Instance == null)
-        {
-            lc_Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }*/
-    // Start is called before the first frame update
     void Start()
     {
         AssignGameObjects();
@@ -69,24 +45,33 @@ public class LevelCompleted : MonoBehaviour
         if (leftHalf.GetComponent<LeftLanded>().leftTouch &&
             rightHalf.GetComponent<RightLanded>().rightTouch)
         {
-            LevelCompletedCanvas.enabled = true;
-            int highestLevel = 0;
-            //Debug.LogError("Time Completed :" + Time.timeSinceLevelLoad);
-            //this saves the highest level player has completed 
-            if (SaveSystem.LoadGameData() != null)
+            TimerStart();
+            Timer();
+            if (timerTime > 2.0)
             {
-               highestLevel = SaveSystem.LoadGameData().level;
-            }
-            level = SceneManager.GetActiveScene().buildIndex;
+                LevelCompletedCanvas.enabled = true;
+                int highestLevel = 0;
+                //Debug.LogError("Time Completed :" + Time.timeSinceLevelLoad);
+                //this saves the highest level player has completed 
+                if (SaveSystem.LoadGameData() != null)
+                {
+                    highestLevel = SaveSystem.LoadGameData().level;
+                }
+                level = SceneManager.GetActiveScene().buildIndex;
 
-            if (level > highestLevel)
-            {
-                SaveSystem.SaveGameData(this);
+                if (level > highestLevel)
+                {
+                    SaveSystem.SaveGameData(this);
+                }
+                //_completedLevel();
+                //i can have some cod ein game manager that disables the level completed GO until
+                //a new level is loaded. reason why is because i dont w
             }
-            //_completedLevel();
-            //i can have some cod ein game manager that disables the level completed GO until
-            //a new level is loaded. reason why is because i dont w
-        }        
+        }
+        else
+        {
+            TimerReset();
+        }
     }
 
     public void NextLevel()
@@ -97,5 +82,22 @@ public class LevelCompleted : MonoBehaviour
     public void DisableLevelCompletedCanvas()
     {
         LevelCompletedCanvas.enabled = false;
+    }
+
+    private void TimerStart()
+    {
+        if (!isRunning)
+        {
+            isRunning = true;
+            startTime = Time.time;
+        }
+    }
+    private void TimerReset()
+    {
+        isRunning = false;
+    }
+    private void Timer()
+    {
+        timerTime = Time.time - startTime;
     }
 }
