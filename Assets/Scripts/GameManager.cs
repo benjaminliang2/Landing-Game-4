@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject levelFailed;
     [SerializeField] GameObject levelCompleted;
     [SerializeField] GameObject startMenu;
+    [SerializeField] Camera cameraPrefab;
 
     private static GameManager gm_Instance = null;
     private void Awake()
@@ -93,7 +94,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("gamemanager.onsceneloaded.startmenu _ detected");
         }
         else
-        {        
+        {
+            Instantiate(cameraPrefab, transform.position, Quaternion.identity);
             Instantiate(player, transform.position, Quaternion.identity);
             Instantiate(levelFailed, transform.position, Quaternion.identity);
             Instantiate(levelCompleted, transform.position, Quaternion.identity);

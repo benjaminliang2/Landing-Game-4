@@ -268,7 +268,7 @@ SpriteRenderer:
   m_Size: {x: 83.340004, y: 83.340004}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &58891575
@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 1140117386}
   - component: {fileID: 1140117385}
   - component: {fileID: 1140117384}
+  - component: {fileID: 1140117387}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -368,6 +369,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1140117387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140117383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4a5b218d1158f47ad9d54ff30364e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7813171831447443713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -375,22 +388,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7813171829367298776, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1727585964466630384, guid: 0ed37267df28d144fa596aa2e40cb101, type: 3}
-    - target: {fileID: 7813171829367298776, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
-      propertyPath: startMenu
-      value: 
-      objectReference: {fileID: 2695585862927826118, guid: 1335064e04d6ea548a2049fbe834a6a0, type: 3}
-    - target: {fileID: 7813171829367298776, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
-      propertyPath: levelFailed
-      value: 
-      objectReference: {fileID: 3198476090279338383, guid: a4b3ba903471eed4a8f06307a60802ef, type: 3}
-    - target: {fileID: 7813171829367298776, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
-      propertyPath: levelCompleted
-      value: 
-      objectReference: {fileID: 1630357250561282351, guid: 612f15bc750e7ef4d84d17a65a3b202d, type: 3}
     - target: {fileID: 7813171829367298777, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
       propertyPath: m_Name
       value: GameManager

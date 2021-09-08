@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     Coroutine leftThrustCoroutine;
     Coroutine rightThrustCoroutine;
 
+    float spawnOffset = 20f;
     GameObject SpawnPlatform;
     Transform startPosition;
 
@@ -141,13 +142,13 @@ public class Player : MonoBehaviour
         SpawnPlatform = GameObject.FindGameObjectWithTag("SpawnPlatform");
 
         transform.position = new Vector3(SpawnPlatform.transform.position.x,
-                                          SpawnPlatform.transform.position.y + 10f,
+                                          SpawnPlatform.transform.position.y + spawnOffset,
                                           SpawnPlatform.transform.position.z);
         PlayerLeftHalf.transform.position = new Vector3(SpawnPlatform.transform.position.x,
-                                          SpawnPlatform.transform.position.y + 10f,
+                                          SpawnPlatform.transform.position.y + spawnOffset,
                                           SpawnPlatform.transform.position.z);
         PlayerRightHalf.transform.position = new Vector3(SpawnPlatform.transform.position.x,
-                                          SpawnPlatform.transform.position.y + 10f,
+                                          SpawnPlatform.transform.position.y + spawnOffset,
                                           SpawnPlatform.transform.position.z);
 
         transform.eulerAngles = new Vector3(0, 0, 0);

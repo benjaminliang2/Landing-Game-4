@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CameraTracking : MonoBehaviour
 {
-    [SerializeField] GameObject objectToTrack;
+    GameObject objectToTrack;
     void Start()
     {
+        objectToTrack = GameObject.FindGameObjectWithTag("PlayerLeft");
         transform.position = objectToTrack.transform.position;
         
     }
