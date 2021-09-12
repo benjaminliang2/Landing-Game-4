@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4597496460846061157}
   m_Layer: 0
   m_Name: Target Indicator
-  m_TagString: Untagged
+  m_TagString: Target Indicator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7350451238425395868}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc8d7e640bf2c2040b6926ce10828438, type: 3}
   m_Name: 
@@ -257,4 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9f02897d193fb4eb3982f77be9d552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
+  seconds: 1.5
+  targetind: {fileID: 2217160697782553073}

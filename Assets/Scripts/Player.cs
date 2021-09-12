@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private void Fire()
+    public void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
         {

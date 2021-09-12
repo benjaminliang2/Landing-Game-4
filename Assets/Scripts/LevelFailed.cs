@@ -63,7 +63,7 @@ public class LevelFailed : MonoBehaviour
         {
             LevelFailedCanvas.enabled = true;
             //Debug.LogError("LevelFailed --- DidFlyTooFar");
-            Debug.LogError(_targetIndicator.GetDistanceAway() + "...." + outOfBoundsDistance);
+            //Debug.LogError(_targetIndicator.GetDistanceAway() + "...." + outOfBoundsDistance);
         }
     }
 

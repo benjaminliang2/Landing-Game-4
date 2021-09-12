@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("GameManager Destroyed");
+            //Debug.LogError("GameManager Destroyed");
             Destroy(gameObject);
         }
     }
@@ -87,11 +87,11 @@ public class GameManager : MonoBehaviour
     //this will determine which gameobjects are active depending on which scene is currently loaded.
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("gamemanager.onsceneloaded");
+        //Debug.Log("gamemanager.onsceneloaded");
         if (scene.name.Contains("Start Menu"))
         {
             Instantiate(startMenu, transform.position, Quaternion.identity);
-            Debug.Log("gamemanager.onsceneloaded.startmenu _ detected");
+            //Debug.Log("gamemanager.onsceneloaded.startmenu _ detected");
         }
         else
         {
@@ -103,6 +103,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log("gamemanager.start()");
+        //Debug.Log("gamemanager.start()");
     }
 }

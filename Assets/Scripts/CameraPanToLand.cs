@@ -7,16 +7,21 @@ public class CameraPanToLand : MonoBehaviour
     Transform LandingTransform;
     Transform SpawnTransform;
     [SerializeField] float speed;
+    [SerializeField] float seconds;
+
     private bool panned = false;
     Coroutine panning;
-    // Start is called before the first frame update
+    Player player;
+    [SerializeField] GameObject targetind;
+
+
     void Start()
     {
-        panned = false;
         LandingTransform = GameObject.FindGameObjectWithTag("LandingPlatform").transform; 
         SpawnTransform = GameObject.FindGameObjectWithTag("SpawnPlatform").transform;
-        transform.position = SpawnTransform.position;
-
+        //transform.position = SpawnTransform.position;
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        //targetind = GameObject.FindGameObjectWithTag("Target Indicator").GetComponent<TargetIndicator>();
 
     }
     void Update()
@@ -24,12 +29,12 @@ public class CameraPanToLand : MonoBehaviour
         if (panned == false)
         {
             panning = StartCoroutine(CameraPanCoroutine());          
-            Debug.LogError(transform.position);
         }
         if 
             (panned == true)
         {
             StopCoroutine(panning);
+            enabled = false;
         }
 
 
@@ -37,12 +42,19 @@ public class CameraPanToLand : MonoBehaviour
 
     IEnumerator CameraPanCoroutine()
     {
-        Debug.Log("camerapancoroutine");
+        //player.enabled = false;
+        gameObject.GetComponent<CameraTracking>().enabled = false;
+        //targetind.SetActive(false);
         transform.position = Vector3.MoveTowards(transform.position, LandingTransform.position, speed * Time.deltaTime);
-        yield return new WaitForSeconds(20);
-        Debug.Log("camerapancoroutine222");
-        transform.position = Vector3.MoveTowards(transform.position, SpawnTransform.position, speed * Time.deltaTime * 1.5f);
+        yield return new WaitForSeconds(4);
+        transform.position = SpawnTransform.position;
+        yield return new WaitForSeconds(1);
+
+        //player.enabled = true;
+        //targetind.SetActive(true);
+        gameObject.GetComponent<CameraTracking>().enabled = true;
         panned = true;
+
     }
 
 

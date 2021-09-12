@@ -11,6 +11,7 @@ TagManager:
   - Level Failed Canvas
   - EventSystem
   - Background
+  - Target Indicator
   layers:
   - Default
   - TransparentFX
