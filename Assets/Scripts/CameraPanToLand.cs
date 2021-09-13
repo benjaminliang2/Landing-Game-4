@@ -20,8 +20,8 @@ public class CameraPanToLand : MonoBehaviour
         LandingTransform = GameObject.FindGameObjectWithTag("LandingPlatform").transform; 
         SpawnTransform = GameObject.FindGameObjectWithTag("SpawnPlatform").transform;
         //transform.position = SpawnTransform.position;
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        //targetind = GameObject.FindGameObjectWithTag("Target Indicator").GetComponent<TargetIndicator>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        targetind = GameObject.FindGameObjectWithTag("Target Indicator");
 
     }
     void Update()
@@ -42,20 +42,26 @@ public class CameraPanToLand : MonoBehaviour
 
     IEnumerator CameraPanCoroutine()
     {
-        //player.enabled = false;
+        player.enabled = false;
         gameObject.GetComponent<CameraTracking>().enabled = false;
-        //targetind.SetActive(false);
+        targetind.SetActive(false);
         transform.position = Vector3.MoveTowards(transform.position, LandingTransform.position, speed * Time.deltaTime);
         yield return new WaitForSeconds(4);
-        transform.position = SpawnTransform.position;
-        yield return new WaitForSeconds(1);
-
-        //player.enabled = true;
-        //targetind.SetActive(true);
+        yield return CameraReturnCoroutine();
+        
+        //transform.position = SpawnTransform.position;
+        //yield return new WaitForSeconds(1);
+        player.enabled = true;
+        targetind.SetActive(true);
         gameObject.GetComponent<CameraTracking>().enabled = true;
         panned = true;
 
     }
+     IEnumerator CameraReturnCoroutine()
+    {
+        transform.position = Vector3.MoveTowards(LandingTransform.position, transform.position, speed * Time.deltaTime);
+        yield return new WaitForSeconds(4);
 
+    }
 
 }

@@ -32,7 +32,6 @@ public class LevelFailed : MonoBehaviour
         //DontDestroyOnLoad(this);
         AssignGameObjects();
         DisableLevelFailedCanvas();
-        Debug.LogError("LevelFailed --- Start --- EndofStartMethod");
 
     }
 

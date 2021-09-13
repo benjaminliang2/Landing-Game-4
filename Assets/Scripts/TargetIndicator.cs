@@ -11,13 +11,11 @@ public class TargetIndicator : MonoBehaviour
     public float HideDistance;
     public Vector3 dir;
 
-    private void Awake()
+    void Start()
     {
         Target = GameObject.FindGameObjectWithTag("LandingPlatform").transform;
         PlayerTransform = GameObject.FindGameObjectWithTag("PlayerLeft").transform;
-        Debug.Log("targetindicator.cs awake()");
-
-        //Debug.LogError("TargetIndicator --- Awake --- Finished");
+        Debug.LogError("TargetIndicator --- Awake --- Finished");
 
     }
 
@@ -30,7 +28,7 @@ public class TargetIndicator : MonoBehaviour
         PlayerTransform = GameObject.FindGameObjectWithTag("PlayerLeft").transform;
 
         //dir = Target.position - PlayerTransform.position;
-        //Debug.LogError("TargetIndicator --- OnEnable --- Finished");
+        Debug.LogError("TargetIndicator --- OnEnable --- Finished");
 
     }
     void OnDisable()
@@ -64,7 +62,7 @@ public class TargetIndicator : MonoBehaviour
 
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        Debug.LogError(Target.position + "_______" + PlayerTransform.position);
+        //Debug.LogError(Target.position + "_______" + PlayerTransform.position);
     }
 
     void SetChildrenActive(bool value)
