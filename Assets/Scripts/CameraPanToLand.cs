@@ -33,7 +33,7 @@ public class CameraPanToLand : MonoBehaviour
         if 
             (panned == true)
         {
-            StopCoroutine(panning);
+            //StopCoroutine(panning);
             enabled = false;
         }
 
@@ -46,8 +46,8 @@ public class CameraPanToLand : MonoBehaviour
         gameObject.GetComponent<CameraTracking>().enabled = false;
         targetind.SetActive(false);
         transform.position = Vector3.MoveTowards(transform.position, LandingTransform.position, speed * Time.deltaTime);
-        yield return new WaitForSeconds(4);
-        yield return CameraReturnCoroutine();
+        yield return new WaitForSeconds(4f);
+        //yield return StartCoroutine(CameraReturnCoroutine());
         
         //transform.position = SpawnTransform.position;
         //yield return new WaitForSeconds(1);

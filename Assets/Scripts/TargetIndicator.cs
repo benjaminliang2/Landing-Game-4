@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -10,6 +11,7 @@ public class TargetIndicator : MonoBehaviour
     Transform PlayerTransform;
     public float HideDistance;
     public Vector3 dir;
+    [SerializeField] Text DistanceText;
 
     void Start()
     {
@@ -19,6 +21,8 @@ public class TargetIndicator : MonoBehaviour
 
     }
 
+
+    /*
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -46,6 +50,8 @@ public class TargetIndicator : MonoBehaviour
         //Debug.LogError("TargetIndicator --- OnSceneLoaded --- Finished");
 
     }
+    */
+
 
     //the update function shows and hides the indicator with its given conditions. 
     void Update()
@@ -58,10 +64,15 @@ public class TargetIndicator : MonoBehaviour
         else
         {
             SetChildrenActive(true);
+            DistanceText.text = dir.magnitude.ToString("#.");
+
         }
 
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        DistanceText.rectTransform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+
         //Debug.LogError(Target.position + "_______" + PlayerTransform.position);
     }
 

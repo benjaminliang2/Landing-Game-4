@@ -9,8 +9,6 @@ public class CameraTracking : MonoBehaviour
     {
         objectToTrack = GameObject.FindGameObjectWithTag("PlayerRight");
         transform.position = objectToTrack.transform.position;
-        //Debug.Log("camera tracking . awake");
-        Debug.Log( transform.position + "_____" + objectToTrack.transform.position);
 
     }
 
