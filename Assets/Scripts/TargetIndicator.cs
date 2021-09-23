@@ -17,7 +17,7 @@ public class TargetIndicator : MonoBehaviour
     {
         Target = GameObject.FindGameObjectWithTag("LandingPlatform").transform;
         PlayerTransform = GameObject.FindGameObjectWithTag("PlayerLeft").transform;
-        Debug.LogError("TargetIndicator --- Awake --- Finished");
+        //Debug.LogError("TargetIndicator --- Awake --- Finished");
 
     }
 

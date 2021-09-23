@@ -7,72 +7,34 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    //enum ModeSwitching {Start, Impulse, Acceleration, Force, VelocityChange};
-    //ModeSwitching m_ModeSwitching;
     [SerializeField] GameObject PlayerLeftHalf;
     [SerializeField] GameObject PlayerRightHalf;
     [SerializeField] float thrust;
     [SerializeField] float impulseForce;
-
     [SerializeField] float torque;
     [SerializeField] float thrustDelay;
-
     Coroutine leftThrustCoroutine;
     Coroutine rightThrustCoroutine;
 
-    float spawnOffset = 20f;
+    float spawnOffset = 10f;
     GameObject SpawnPlatform;
     Transform startPosition;
-
-
-    /*private void Awake()
-    {
-        int numberPlayers = FindObjectsOfType<Player>().Length;
-        if (numberPlayers > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        SpawnPlayer();
-    }
-
-    private void Start()
-    {
-        SpawnPlayer();
-    }*/
+    public static int level = -1;
+    public bool retry = false;
 
     void OnEnable()
     {
         //SceneManager.sceneLoaded += OnSceneLoaded;
-        //Debug.LogError("Player --- On Enable --- Finished");
 
     }
     void OnDisable()
     {
         //SceneManager.sceneLoaded -= OnSceneLoaded;
-        Debug.LogError("Player --- On Disable --- Finished");
+        //Debug.LogError("Player --- On Disable --- Finished");
+        level = SceneManager.GetActiveScene().buildIndex;
 
     }
 
-
-    //I have to pass in / use scene and mode in UnityEngines existing delegate method. 
-    /*void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        //Debug.LogError("Player --- OnSceneLoaded --- Finished");
-        if (scene.name.Contains("Start Menu"))
-        {
-            gameObject.SetActive(false);
-            return;
-        } else
-        {
-            SpawnPlayer();
-
-        }
-
-    }*/
 
     private void Awake()
     {
@@ -159,8 +121,5 @@ public class Player : MonoBehaviour
         PlayerRightHalf.GetComponent<Rigidbody2D>().angularVelocity = 0;
         PlayerLeftHalf.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         PlayerLeftHalf.GetComponent<Rigidbody2D>().angularVelocity = 0;
-        //Debug.Log("Player --- SpawnPlayer() --- Finished");
-        Debug.LogError(SceneManager.GetActiveScene().buildIndex);
-
     }
 }

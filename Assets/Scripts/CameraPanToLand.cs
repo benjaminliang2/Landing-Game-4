@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CameraPanToLand : MonoBehaviour
 {
@@ -21,6 +23,17 @@ public class CameraPanToLand : MonoBehaviour
         //transform.position = SpawnTransform.position;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         targetind = GameObject.FindGameObjectWithTag("Target Indicator");
+
+        if (SceneManager.GetActiveScene().buildIndex == Player.level)
+        {
+            enabled = false;
+            Debug.LogError("retrying previous level");
+        }
+        else
+        {
+            //cameraPanToLand.enabled = true;
+            Debug.LogError("new level loaded");
+        }
 
     }
     void Update()

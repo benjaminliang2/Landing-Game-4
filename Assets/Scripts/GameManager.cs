@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject startMenu;
     [SerializeField] Camera cameraPrefab;
     [SerializeField] GameObject backgroundPrefab;
-    [SerializeField] CameraPanToLand cameraPanToLand;
+    //[SerializeField] CameraPanToLand cameraPanToLand;
 
     private static GameManager gm_Instance = null;
-    public static int prevSceneNumber;
-    public static int currentSceneNumber;
+    //public static int prevSceneNumber;
+    //public static int currentSceneNumber;
 
     private void Awake()
     {
@@ -38,10 +38,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Debug.Log("gamemanager onenable");
     }
     private void OnDisable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Debug.Log("gamemanager onDISABLE");
+
     }
 
     public void SaveGame(LevelCompleted levelData)
@@ -92,7 +95,7 @@ public class GameManager : MonoBehaviour
     //this will determine which gameobjects are active depending on which scene is currently loaded.
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //Debug.Log("gamemanager.onsceneloaded");
+        Debug.Log("gamemanager.onsceneloaded");
         if (scene.name.Contains("Start Menu"))
         {
             //Instantiate(startMenu, transform.position, Quaternion.identity);
@@ -100,22 +103,25 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Instantiate(cameraPrefab, transform.position, Quaternion.identity);
+            Instantiate(cameraPrefab, transform.position, Quaternion.identity);           
             Instantiate(backgroundPrefab, transform.position, Quaternion.identity);
             Instantiate(player, transform.position, Quaternion.identity);
+            /*
+            if (SceneManager.GetActiveScene().buildIndex == Player.level)
+            {
+                GetComponent<CameraPanToLand>().enabled = false;
+                Debug.LogError("retrying previous level");
+            }
+            else
+            {
+                //cameraPanToLand.enabled = true;
+                Debug.LogError("new level loaded");
+            }
+            */
+            
             Instantiate(levelFailed, transform.position, Quaternion.identity);
             Instantiate(levelCompleted, transform.position, Quaternion.identity);
         }
-        currentSceneNumber = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneNumber == prevSceneNumber)
-        {
-            cameraPanToLand.enabled = false;
-        }
-        else
-        {
-             prevSceneNumber = currentSceneNumber;
-        }
-        Debug.Log(prevSceneNumber + "   " + currentSceneNumber);
     }
     private void Start()
     {
