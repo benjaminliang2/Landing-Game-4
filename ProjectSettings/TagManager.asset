@@ -49,3 +49,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1009532221
+    locked: 0
+  - name: Particle Effects
+    uniqueID: 3679711133
+    locked: 0
+  - name: GameObjects
+    uniqueID: 2046351397
+    locked: 0

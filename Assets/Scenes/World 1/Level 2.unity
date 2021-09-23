@@ -195,6 +195,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: World 1 - Level 1 Land
       objectReference: {fileID: 0}
+    - target: {fileID: 4071464395992408385, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071464395992408385, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071464395992408385, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071464395992408385, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071464395992408385, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071464395992408385, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071464395992408385, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4925762047377001477, guid: d07f7d84b91f6a64ab21932f37a57a8e, type: 3}
       propertyPath: m_RootOrder
       value: 0

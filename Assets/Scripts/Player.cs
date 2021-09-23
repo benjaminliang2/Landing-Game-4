@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     GameObject SpawnPlatform;
     Transform startPosition;
 
+
     /*private void Awake()
     {
         int numberPlayers = FindObjectsOfType<Player>().Length;
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour
     void OnDisable()
     {
         //SceneManager.sceneLoaded -= OnSceneLoaded;
-        //Debug.LogError("Player --- On Disable --- Finished");
+        Debug.LogError("Player --- On Disable --- Finished");
 
     }
 
@@ -159,5 +160,7 @@ public class Player : MonoBehaviour
         PlayerLeftHalf.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         PlayerLeftHalf.GetComponent<Rigidbody2D>().angularVelocity = 0;
         //Debug.Log("Player --- SpawnPlayer() --- Finished");
+        Debug.LogError(SceneManager.GetActiveScene().buildIndex);
+
     }
 }

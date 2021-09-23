@@ -49,3 +49,5 @@ MonoBehaviour:
   levelCompleted: {fileID: 1630357250561282351, guid: 612f15bc750e7ef4d84d17a65a3b202d, type: 3}
   startMenu: {fileID: 2695585862927826118, guid: 1335064e04d6ea548a2049fbe834a6a0, type: 3}
   cameraPrefab: {fileID: 8230544029047329046, guid: f0670625d79c50140aa64b74e785f3a8, type: 3}
+  backgroundPrefab: {fileID: 911269994533477075, guid: 1167f23b71421b34d8904694585ab2d8, type: 3}
+  cameraPanToLand: {fileID: 526901312675928246, guid: f0670625d79c50140aa64b74e785f3a8, type: 3}

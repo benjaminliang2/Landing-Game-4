@@ -14,7 +14,6 @@ public class CameraPanToLand : MonoBehaviour
     Player player;
     [SerializeField] GameObject targetind;
 
-
     void Start()
     {
         LandingTransform = GameObject.FindGameObjectWithTag("LandingPlatform").transform; 

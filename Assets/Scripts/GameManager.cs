@@ -15,8 +15,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject levelCompleted;
     [SerializeField] GameObject startMenu;
     [SerializeField] Camera cameraPrefab;
+    [SerializeField] GameObject backgroundPrefab;
+    [SerializeField] CameraPanToLand cameraPanToLand;
 
     private static GameManager gm_Instance = null;
+    public static int prevSceneNumber;
+    public static int currentSceneNumber;
+
     private void Awake()
     {
         if (gm_Instance == null)
@@ -90,16 +95,27 @@ public class GameManager : MonoBehaviour
         //Debug.Log("gamemanager.onsceneloaded");
         if (scene.name.Contains("Start Menu"))
         {
-            Instantiate(startMenu, transform.position, Quaternion.identity);
+            //Instantiate(startMenu, transform.position, Quaternion.identity);
             //Debug.Log("gamemanager.onsceneloaded.startmenu _ detected");
         }
         else
         {
             Instantiate(cameraPrefab, transform.position, Quaternion.identity);
+            Instantiate(backgroundPrefab, transform.position, Quaternion.identity);
             Instantiate(player, transform.position, Quaternion.identity);
             Instantiate(levelFailed, transform.position, Quaternion.identity);
             Instantiate(levelCompleted, transform.position, Quaternion.identity);
         }
+        currentSceneNumber = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneNumber == prevSceneNumber)
+        {
+            cameraPanToLand.enabled = false;
+        }
+        else
+        {
+             prevSceneNumber = currentSceneNumber;
+        }
+        Debug.Log(prevSceneNumber + "   " + currentSceneNumber);
     }
     private void Start()
     {

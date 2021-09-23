@@ -65,14 +65,12 @@ public class TargetIndicator : MonoBehaviour
         {
             SetChildrenActive(true);
             DistanceText.text = dir.magnitude.ToString("#.");
-
         }
 
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         DistanceText.rectTransform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
-
         //Debug.LogError(Target.position + "_______" + PlayerTransform.position);
     }
 
