@@ -22,14 +22,17 @@ public class LevelCompleted : MonoBehaviour
     [SerializeField] Canvas LevelCompletedCanvas;
     [SerializeField] Canvas TimerCanvas;
     [SerializeField] Slider slider;
-    
-   
+
+    private float startGameTime;
+    private float gametime;
 
 
     void Start()
     {
         AssignGameObjects();
         DisableCanvas();
+        Debug.LogError("levelcompleted start method called");
+        startGameTime = Time.time;
 
     }
 
@@ -73,6 +76,7 @@ public class LevelCompleted : MonoBehaviour
                 {
                     SaveSystem.SaveGameData(this);
                 }
+                gametime = startGameTime - Time.time;
                 //_completedLevel();
                 //i can have some cod ein game manager that disables the level completed GO until
                 //a new level is loaded. reason why is because i dont w

@@ -105,20 +105,7 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(cameraPrefab, transform.position, Quaternion.identity);           
             Instantiate(backgroundPrefab, transform.position, Quaternion.identity);
-            Instantiate(player, transform.position, Quaternion.identity);
-            /*
-            if (SceneManager.GetActiveScene().buildIndex == Player.level)
-            {
-                GetComponent<CameraPanToLand>().enabled = false;
-                Debug.LogError("retrying previous level");
-            }
-            else
-            {
-                //cameraPanToLand.enabled = true;
-                Debug.LogError("new level loaded");
-            }
-            */
-            
+            Instantiate(player, transform.position, Quaternion.identity);            
             Instantiate(levelFailed, transform.position, Quaternion.identity);
             Instantiate(levelCompleted, transform.position, Quaternion.identity);
         }
