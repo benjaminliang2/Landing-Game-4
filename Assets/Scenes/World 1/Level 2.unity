@@ -135,8 +135,16 @@ PrefabInstance:
       value: World 1 - Level 1 Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 2800695252875036349, guid: e65e293055bb3a84ca2cd3c50bdb5030, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800695252875036349, guid: e65e293055bb3a84ca2cd3c50bdb5030, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800695252875036349, guid: e65e293055bb3a84ca2cd3c50bdb5030, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2046351397
       objectReference: {fileID: 0}
     - target: {fileID: 5002810626767745879, guid: e65e293055bb3a84ca2cd3c50bdb5030, type: 3}
       propertyPath: m_RootOrder

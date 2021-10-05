@@ -9,7 +9,7 @@ public class BackgroundPosition : MonoBehaviour
     
     void Start()
     {
-        transform.position = new Vector3(0, 250f, 1);
+        transform.position = new Vector3(0, 150f, 1);
     }
 
     // Update is called once per frame

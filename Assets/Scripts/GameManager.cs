@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject startMenu;
     [SerializeField] Camera cameraPrefab;
     [SerializeField] GameObject backgroundPrefab;
+    [SerializeField] Canvas startMenuCanvas;
     //[SerializeField] CameraPanToLand cameraPanToLand;
 
     private static GameManager gm_Instance = null;
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour
     //this will determine which gameobjects are active depending on which scene is currently loaded.
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("gamemanager.onsceneloaded");
+        //Debug.Log("gamemanager.onsceneloaded");
         if (scene.name.Contains("Start Menu"))
         {
             //Instantiate(startMenu, transform.position, Quaternion.identity);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +11,10 @@ public class LevelFailed : MonoBehaviour
     [SerializeField] Canvas LevelFailedCanvas;
     float outOfBoundsDistance = 200;
 
+    [SerializeField] GameObject bottomBoundary;
     CheckJoint checkJoint;
     TargetIndicator _targetIndicator;
-    /*private static LevelFailed lf_Instance = null;
-    private void Awake()
-    {
-        if (lf_Instance == null)
-        {
-            lf_Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }*/
+    BottomCollider bottomCollider;
 
 
     void Start()
@@ -39,11 +29,23 @@ public class LevelFailed : MonoBehaviour
     {
         didFlyTooFar();
         didJointBreak();
+        didCollideWithBottom();
     }
+
+    private void didCollideWithBottom()
+    {
+        if(bottomCollider.playerDied == true)
+        {
+            LevelFailedCanvas.enabled = true;
+
+        }
+    }
+
     void AssignGameObjects()
     {
         checkJoint = FindObjectOfType<CheckJoint>();
         _targetIndicator = FindObjectOfType<TargetIndicator>();
+        bottomCollider = FindObjectOfType<BottomCollider>();
         //Debug.LogError("LevelFailed --- AssignGameObject --- Finished");
 
     }

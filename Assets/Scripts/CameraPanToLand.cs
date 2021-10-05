@@ -27,12 +27,12 @@ public class CameraPanToLand : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == Player.level)
         {
             enabled = false;
-            Debug.LogError("retrying previous level");
+            //Debug.LogError("retrying previous level");
         }
         else
         {
             //cameraPanToLand.enabled = true;
-            Debug.LogError("new level loaded");
+            //Debug.LogError("new level loaded");
         }
 
     }

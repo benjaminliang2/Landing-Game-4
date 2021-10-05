@@ -13,6 +13,7 @@ public class LeftLanded : MonoBehaviour
         {
             leftTouch = true;
         }
+
     }
     public void OnCollisionExit2D(Collision2D other)
     {

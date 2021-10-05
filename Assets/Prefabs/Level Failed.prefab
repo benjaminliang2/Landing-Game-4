@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelFailedCanvas: {fileID: 3198476090484449502}
-  outOfBoundsDistance: 99999
+  bottomBoundary: {fileID: 6178390676381087721, guid: b3c3ae11cb2a97a479c6758740089295, type: 3}
 --- !u!1 &3198476090484449474
 GameObject:
   m_ObjectHideFlags: 0
