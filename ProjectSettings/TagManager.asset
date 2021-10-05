@@ -12,6 +12,7 @@ TagManager:
   - EventSystem
   - Background
   - Target Indicator
+  - CameraTrigger
   layers:
   - Default
   - TransparentFX

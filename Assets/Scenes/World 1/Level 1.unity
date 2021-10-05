@@ -418,10 +418,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Trigger
       objectReference: {fileID: 0}
-    - target: {fileID: 152631557386295329, guid: 70f3c74d693abfe4eb1da89fd536a234, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 152631557386295335, guid: 70f3c74d693abfe4eb1da89fd536a234, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -466,27 +462,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7321154968440268963, guid: 70f3c74d693abfe4eb1da89fd536a234, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f3c74d693abfe4eb1da89fd536a234, type: 3}
---- !u!1 &3045607407914729113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 152631557386295329, guid: 70f3c74d693abfe4eb1da89fd536a234, type: 3}
-  m_PrefabInstance: {fileID: 3045607407914729112}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3045607407914729114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3045607407914729113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc232a541d6bf524bb69315804870b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraYaxisLock: 1
 --- !u!1001 &6178390675206950410
 PrefabInstance:
   m_ObjectHideFlags: 0
