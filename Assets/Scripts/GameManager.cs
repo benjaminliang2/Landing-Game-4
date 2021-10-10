@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            level = 1;
+            level = 2;
         }
         SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
@@ -79,6 +79,11 @@ public class GameManager : MonoBehaviour
     {
         //OnStartMenuClicked();
         SceneManager.LoadScene("Start Menu", LoadSceneMode.Single);
+    }
+    public void GoToLevelSelectionMenu()
+    {
+        //OnStartMenuClicked();
+        SceneManager.LoadScene("Level Selector Menu", LoadSceneMode.Single);
     }
 
     public void GoToNextLevel()
@@ -97,7 +102,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         //Debug.Log("gamemanager.onsceneloaded");
-        if (scene.name.Contains("Start Menu"))
+        if (scene.name.Contains("Start Menu") || scene.name.Contains("Level Selector Menu"))
         {
             //Instantiate(startMenu, transform.position, Quaternion.identity);
             //Debug.Log("gamemanager.onsceneloaded.startmenu _ detected");

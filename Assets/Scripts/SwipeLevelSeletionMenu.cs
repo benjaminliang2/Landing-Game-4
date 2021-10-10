@@ -6,17 +6,21 @@ public class SwipeLevelSeletionMenu : MonoBehaviour
 {
     public GameObject scrollBar;
     float scrollPosition = 0;
+    //Array of float values. Name of array is called "position."
     float[]position;
+    float distance;
     void Start()
     {
-        
+        //declare new array of float with x number of elements. X is equal to the number of children in this gameObject.
+        position = new float[transform.childCount];
+        distance = 1f / (position.Length - 1f);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        position = new float[transform.childCount];
-        float distance = 1f / (position.Length - 1f);
         for (int i=0; i < position.Length; i++)
         {
             position[i] = distance * i;
@@ -27,6 +31,7 @@ public class SwipeLevelSeletionMenu : MonoBehaviour
         }
         else
         {
+            //Selects closest button and auto-centers in screen when scrolling
             for (int i = 0; i < position.Length; i++)
             {
                 if (scrollPosition < position[i] + (distance/2) && scrollPosition > position[i] - (distance / 2))
