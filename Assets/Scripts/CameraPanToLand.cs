@@ -42,8 +42,7 @@ public class CameraPanToLand : MonoBehaviour
         {
             panning = StartCoroutine(CameraPanCoroutine());          
         }
-        if 
-            (panned == true)
+        else
         {
             //StopCoroutine(panning);
             enabled = false;
@@ -57,7 +56,10 @@ public class CameraPanToLand : MonoBehaviour
         player.enabled = false;
         gameObject.GetComponent<CameraTracking>().enabled = false;
         targetind.SetActive(false);
-        transform.position = Vector3.MoveTowards(transform.position, LandingTransform.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(LandingTransform.position.x,
+                                                                                LandingTransform.position.y,
+                                                                                LandingTransform.position.z - 200f)
+                                                                                                                    , speed * Time.deltaTime) ;
         yield return new WaitForSeconds(4f);
         //yield return StartCoroutine(CameraReturnCoroutine());
         

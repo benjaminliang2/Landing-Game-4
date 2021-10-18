@@ -12,8 +12,12 @@ public class CameraTracking : MonoBehaviour
     {
         objectToTrack = GameObject.FindGameObjectWithTag("PlayerRight");
         camTrigger = GameObject.FindGameObjectWithTag("CameraTrigger");
-        transform.position = objectToTrack.transform.position;
         
+    }
+    private void OnEnable()
+    {
+        tempTransform.z = (-200f);
+
     }
 
     // Update is called once per frame
@@ -21,7 +25,7 @@ public class CameraTracking : MonoBehaviour
     {
         //transform.position = new Vector2(objectToTrack.transform.position.x,
         //                                objectToTrack.transform.position.y);
-        Debug.LogError(transform.position);
+        //Debug.LogError(transform.position);
 
         if (camTrigger.GetComponent<CameraTrigger>().cameraYaxisLock)
         {
