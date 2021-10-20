@@ -8,7 +8,7 @@ public class WorldSelectionDropdownMenu : MonoBehaviour
     [SerializeField] Canvas earthCanvas;
     [SerializeField] Canvas marsCanvas;
     Dropdown worldDropdownMenu;
-    public Text worldName;
+    //public Text worldName;
 
     private void Awake()
     {
