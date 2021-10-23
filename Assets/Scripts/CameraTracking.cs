@@ -16,6 +16,7 @@ public class CameraTracking : MonoBehaviour
     }
     private void OnEnable()
     {
+        //set z-position of camera to -200f (constant position)
         tempTransform.z = (-200f);
 
     }

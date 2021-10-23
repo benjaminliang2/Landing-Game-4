@@ -24,6 +24,7 @@ public class CameraPanToLand : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         targetind = GameObject.FindGameObjectWithTag("Target Indicator");
 
+        //disable pan effect if player is retrying level 
         if (SceneManager.GetActiveScene().buildIndex == Player.level)
         {
             enabled = false;

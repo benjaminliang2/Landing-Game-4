@@ -111,15 +111,11 @@ public class GameManager : MonoBehaviour
         {
             //camera needs to spawn in view of spawn platform.
             Instantiate(cameraPrefab, transform.position, Quaternion.identity);           
-            //Instantiate(backgroundPrefab, transform.position, Quaternion.identity);
+
             //Player instantiation location doesnt matter because player script will relocate it anyway.
             Instantiate(player, transform.position, Quaternion.identity);            
             Instantiate(levelFailed, transform.position, Quaternion.identity);
             Instantiate(levelCompleted, transform.position, Quaternion.identity);
         }
-    }
-    private void Start()
-    {
-        //Debug.Log("gamemanager.start()");
     }
 }

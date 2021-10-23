@@ -40,6 +40,8 @@ public class SwipeLevelSeletionMenu : MonoBehaviour
                 }
             }
         }
+
+        //selected image is slightly enlarged. 
         for (int i = 0; i < position.Length; i++)
         {
             if (scrollPosition < position[i] + (distance / 2) && scrollPosition > position[i] - (distance / 2))
