@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public delegate void StartMenuClicked();
     //public static event StartMenuClicked OnStartMenuClicked;
 
-    public int level;
+    public static int level;
     [SerializeField] GameObject player;
     [SerializeField] GameObject levelFailed;
     [SerializeField] GameObject levelCompleted;
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {        
         SaveSystem.SaveGameData(levelData);
     }
-    public void LoadGame()
+    public static void LoadGame()
     {
         GameData data = SaveSystem.LoadGameData();
 
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             level = 2;
         }
-        SceneManager.LoadScene(level, LoadSceneMode.Single);
+        //SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
 
     public void DeleteGame()
