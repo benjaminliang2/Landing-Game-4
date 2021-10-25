@@ -36,6 +36,7 @@ public class LevelFailed : MonoBehaviour
     {
         if(bottomCollider.playerDied == true)
         {
+            //Time.timeScale = 0;
             LevelFailedCanvas.enabled = true;
 
         }

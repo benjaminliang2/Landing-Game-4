@@ -9,13 +9,13 @@ public class CameraTrigger : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         cameraYaxisLock = true;
-        Debug.Log(cameraYaxisLock);
+        //Debug.Log(cameraYaxisLock);
 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         cameraYaxisLock = false;
-        Debug.LogError(cameraYaxisLock);
+        //Debug.LogError(cameraYaxisLock);
 
     }
 }
