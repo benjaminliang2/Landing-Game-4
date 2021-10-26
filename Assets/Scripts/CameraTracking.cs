@@ -8,6 +8,8 @@ public class CameraTracking : MonoBehaviour
     GameObject objectToTrack;
     GameObject camTrigger;
     Vector3 tempTransform;
+    public static float startGameTime;
+
     void Start()
     {
         objectToTrack = GameObject.FindGameObjectWithTag("PlayerRight");
@@ -16,6 +18,7 @@ public class CameraTracking : MonoBehaviour
     }
     private void OnEnable()
     {
+        startGameTime = Time.time;
         //set z-position of camera to -200f (constant position)
         tempTransform.z = (-200f);
 

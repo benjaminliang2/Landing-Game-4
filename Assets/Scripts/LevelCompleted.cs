@@ -23,8 +23,9 @@ public class LevelCompleted : MonoBehaviour
     [SerializeField] Canvas TimerCanvas;
     [SerializeField] Slider slider;
 
-    private float startGameTime;
+    //private float startGameTime;
     private float gametime;
+    private bool completed = false;
 
 
     void Start()
@@ -32,14 +33,21 @@ public class LevelCompleted : MonoBehaviour
         AssignGameObjects();
         DisableCanvas();
         Debug.LogError("levelcompleted start method called");
-        startGameTime = Time.time;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        DidCompleteLevel();
+        if (completed)
+        {
+
+        }
+        else
+        {
+            DidCompleteLevel();
+
+        }
     }
 
     private void OnDisable()
@@ -76,7 +84,9 @@ public class LevelCompleted : MonoBehaviour
                 {
                     SaveSystem.SaveGameData(this);
                 }
-                gametime = startGameTime - Time.time;
+                gametime = Time.time - CameraTracking.startGameTime;
+                Debug.Log(gametime);
+                completed = true;
             }
         }
         else
