@@ -86,6 +86,7 @@ public class LevelCompleted : MonoBehaviour
                 }
                 gametime = Time.time - CameraTracking.startGameTime;
                 Debug.Log(gametime);
+                LevelCompletedCanvas.GetComponentInChildren<Text>().text = gametime.ToString(".##");
                 completed = true;
             }
         }
