@@ -27,13 +27,14 @@ public class LevelCompleted : MonoBehaviour
     private float gametime;
     private bool completed = false;
 
+    LevelData data;
 
     void Start()
     {
         AssignGameObjects();
         DisableCanvas();
-        Debug.LogError("levelcompleted start method called");
-
+        //Debug.LogError("levelcompleted start method called");
+        data = new LevelData(gametime);
     }
 
     // Update is called once per frame
@@ -80,9 +81,14 @@ public class LevelCompleted : MonoBehaviour
                 }
                 level = SceneManager.GetActiveScene().buildIndex;
 
-                if (level > highestLevel)
+                if (level >= highestLevel)
                 {
                     SaveSystem.SaveGameData(this);
+
+                    data.timeTookToComplete = gametime;
+                    
+                    SaveSystem.SaveListOfLevelData(data);
+                    Debug.LogError("saved timetook");
                 }
                 gametime = Time.time - CameraTracking.startGameTime;
                 Debug.Log(gametime);

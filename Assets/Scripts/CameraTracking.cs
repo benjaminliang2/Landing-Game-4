@@ -10,6 +10,7 @@ public class CameraTracking : MonoBehaviour
     Vector3 tempTransform;
     public static float startGameTime;
 
+    ListOfLevelData listofleveldata;
     void Start()
     {
         objectToTrack = GameObject.FindGameObjectWithTag("PlayerRight");
@@ -22,6 +23,11 @@ public class CameraTracking : MonoBehaviour
         //set z-position of camera to -200f (constant position)
         tempTransform.z = (-200f);
 
+        //temporary code below delete later
+        listofleveldata =  SaveSystem.LoadLevelDataList();
+        Debug.LogError(listofleveldata.allLevelDataList[0].timeTookToComplete);
+
+        //temporary code above delete later
     }
 
     // Update is called once per frame
