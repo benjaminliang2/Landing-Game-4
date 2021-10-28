@@ -17,7 +17,6 @@ public class LevelCompleted : MonoBehaviour
     private bool isRunning = false;
     private float startTime;
     private float timerTime;
-    
 
     [SerializeField] Canvas LevelCompletedCanvas;
     [SerializeField] Canvas TimerCanvas;
@@ -26,6 +25,7 @@ public class LevelCompleted : MonoBehaviour
     //private float startGameTime;
     private float gametime;
     private bool completed = false;
+    ListOfLevelData _ListOfLevelData;
 
     LevelData data;
 
@@ -73,6 +73,8 @@ public class LevelCompleted : MonoBehaviour
             {
                 LevelCompletedCanvas.enabled = true;
                 int highestLevel = 0;
+                float savedTime = 9999.0f;
+
                 //Debug.LogError("Time Completed :" + Time.timeSinceLevelLoad);
                 //this saves the highest level player has completed 
                 if (SaveSystem.LoadGameData() != null)
@@ -81,17 +83,26 @@ public class LevelCompleted : MonoBehaviour
                 }
                 level = SceneManager.GetActiveScene().buildIndex;
 
+                if (SaveSystem.LoadLevelDataList() != null)
+                {                 
+                    savedTime = SaveSystem.LoadLevelDataList().allLevelDataList[level-2].timeTookToComplete;
+                }
+                if (gametime <= savedTime)
+                {
+
+                }
+
                 if (level >= highestLevel)
                 {
                     SaveSystem.SaveGameData(this);
+                    gametime = Time.time - CameraTracking.startGameTime;
 
                     data.timeTookToComplete = gametime;
                     
                     SaveSystem.SaveListOfLevelData(data);
-                    Debug.LogError("saved timetook");
+                    Debug.LogError("saved timetook   " + gametime);
                 }
-                gametime = Time.time - CameraTracking.startGameTime;
-                Debug.Log(gametime);
+                //Debug.Log(gametime);
                 LevelCompletedCanvas.GetComponentInChildren<Text>().text = gametime.ToString(".##");
                 completed = true;
             }
