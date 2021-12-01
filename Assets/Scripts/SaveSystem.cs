@@ -17,14 +17,14 @@ public static class SaveSystem {
         stream.Close();
     }
 
-    public static void SaveListOfLevelData(LevelData levelData)
+    public static void SaveListOfLevelData(ListOfLevelData list)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/levelData.list";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        ListOfLevelData data = new ListOfLevelData(levelData);
-        
+/*        ListOfLevelData data = new ListOfLevelData();
+*/        ListOfLevelData data = list;
 
         formatter.Serialize(stream, data);
         stream.Close();
@@ -67,9 +67,11 @@ public static class SaveSystem {
     public static void DeleteGameData()
     {
         string path = Application.persistentDataPath + "/game.progress";
+        string path2 = Application.persistentDataPath + "/levelData.list";
         try
         {
             File.Delete(path);
+            File.Delete(path2);
         }
         catch(Exception ex)
         {

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     //public static event StartMenuClicked OnStartMenuClicked;
 
     public static int level;
+    public int levelNumber;
     [SerializeField] GameObject player;
     [SerializeField] GameObject levelFailed;
     [SerializeField] GameObject levelCompleted;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject backgroundPrefab;
     [SerializeField] Canvas startMenuCanvas;
     //[SerializeField] CameraPanToLand cameraPanToLand;
+    ListOfLevelData listOfLevelData;
 
     private static GameManager gm_Instance = null;
     //public static int prevSceneNumber;
@@ -48,10 +50,17 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void SaveGame(LevelCompleted levelData)
-    {        
+/*    public void SaveGame(LevelCompleted levelData)
+    {
         SaveSystem.SaveGameData(levelData);
     }
+
+    public void SaveLevelList(ListOfLevelData list)
+    {
+        SaveSystem.SaveListOfLevelData(list);
+    }
+
+
     public static void LoadGame()
     {
         GameData data = SaveSystem.LoadGameData();
@@ -68,6 +77,38 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
 
+    public static void LoadLevelList()
+    {
+        ListOfLevelData data = SaveSystem.LoadLevelDataList();
+        if (data == null)
+        {
+            //if there is no data to load, then create new listofleveldata called data
+            ListOfLevelData list = new ListOfLevelData();
+            data = list;
+        }
+    }*/
+
+    public void LoadLevel(int _levelLoad)
+    {
+        if (_levelLoad == 1)
+        {
+            SceneManager.LoadScene(_levelLoad + 1);
+        }
+        else
+        {
+
+            listOfLevelData = SaveSystem.LoadLevelDataList();
+            if(listOfLevelData.allLevelDataList[_levelLoad-2].completed == true)
+            {
+                SceneManager.LoadScene(_levelLoad + 1);
+            }
+            else
+            {
+                Debug.Log(listOfLevelData.allLevelDataList[_levelLoad - 2].completed);
+                Debug.LogError("the level you selected is LOCKED");
+            }
+        }
+    }
     public void DeleteGame()
     {
         SaveSystem.DeleteGameData();

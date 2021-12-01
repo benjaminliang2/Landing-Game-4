@@ -417,6 +417,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8d7e640bf2c2040b6926ce10828438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listofleveldata:
+    allLevelDataList:
+    - timeTookToComplete: 0
+      completed: 0
+    - timeTookToComplete: 0
+      completed: 0
 --- !u!114 &6773594594861059902
 MonoBehaviour:
   m_ObjectHideFlags: 0

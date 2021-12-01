@@ -5,10 +5,11 @@ using UnityEngine;
 public class LevelData
 {
     public float timeTookToComplete;
+    public bool completed;
 
-    public LevelData(float time)
+    /*public LevelData(float time)
     {
         timeTookToComplete = time;
-    }
+    }*/
 }
 

@@ -10,7 +10,7 @@ public class LevelCompleted : MonoBehaviour
     //public static event CompletedLevel _completedLevel;
     GameObject leftHalf;
     GameObject rightHalf;
-    public int level;
+    public int scene;
     private float count = 2.0f;
 
     //Timer - Variables
@@ -27,14 +27,14 @@ public class LevelCompleted : MonoBehaviour
     private bool completed = false;
     ListOfLevelData _ListOfLevelData;
 
-    LevelData data;
+    LevelData levelData;
 
     void Start()
     {
         AssignGameObjects();
         DisableCanvas();
         //Debug.LogError("levelcompleted start method called");
-        data = new LevelData(gametime);
+        //data = new LevelData();
     }
 
     // Update is called once per frame
@@ -72,36 +72,66 @@ public class LevelCompleted : MonoBehaviour
             if (timerTime > count)
             {
                 LevelCompletedCanvas.enabled = true;
-                int highestLevel = 0;
-                float savedTime = 9999.0f;
 
                 //Debug.LogError("Time Completed :" + Time.timeSinceLevelLoad);
                 //this saves the highest level player has completed 
-                if (SaveSystem.LoadGameData() != null)
+
+                scene = SceneManager.GetActiveScene().buildIndex;
+                gametime = Time.time - CameraTracking.startGameTime;
+
+                if (SaveSystem.LoadLevelDataList() == null)
                 {
-                    highestLevel = SaveSystem.LoadGameData().level;
+                    levelData = new LevelData();
+                    levelData.timeTookToComplete = gametime;
+                    levelData.completed = true;
+                    _ListOfLevelData = new ListOfLevelData();
+                    _ListOfLevelData.allLevelDataList.Add(levelData);
+                    SaveSystem.SaveListOfLevelData(_ListOfLevelData);
+                    Debug.Log("saved list of level data");
                 }
-                level = SceneManager.GetActiveScene().buildIndex;
 
-                if (SaveSystem.LoadLevelDataList() != null)
-                {                 
-                    savedTime = SaveSystem.LoadLevelDataList().allLevelDataList[level-2].timeTookToComplete;
-                }
-                if (gametime <= savedTime)
+                else
                 {
+                    _ListOfLevelData = SaveSystem.LoadLevelDataList();
+                    //check if element of that list exists. if it exists, check value of saved time and update if applicable. otherwise, create new element and add gametime as saved time. 
+                    if (_ListOfLevelData.allLevelDataList.Count < (scene - 1))
+                    {
+                        //new data entry
+                        levelData = new LevelData();
+                        levelData.timeTookToComplete = gametime;
+                        levelData.completed = true;
+                        _ListOfLevelData.allLevelDataList.Add(levelData);
+                        SaveSystem.SaveListOfLevelData(_ListOfLevelData);
+                        Debug.Log("saved list of level data");
+
+                    }
+                    else //might delete else statement
+                    {
+
+                        if (gametime < _ListOfLevelData.allLevelDataList[scene - 2].timeTookToComplete)
+                        {
+                            _ListOfLevelData.allLevelDataList[scene - 2].timeTookToComplete = gametime;
+                            SaveSystem.SaveListOfLevelData(_ListOfLevelData);
+                        }
+                        else
+                        {
+                            //do not update new gametime 
+                        }
+
+                    }
 
                 }
 
-                if (level >= highestLevel)
-                {
-                    SaveSystem.SaveGameData(this);
-                    gametime = Time.time - CameraTracking.startGameTime;
 
-                    data.timeTookToComplete = gametime;
-                    
-                    SaveSystem.SaveListOfLevelData(data);
-                    Debug.LogError("saved timetook   " + gametime);
-                }
+                //if (level >= highestLevel)
+                //{
+                //    SaveSystem.SaveGameData(this);
+                //    gametime = Time.time - CameraTracking.startGameTime;
+
+                //    data.timeTookToComplete = gametime;
+
+                //    Debug.LogError("saved timetook   " + gametime);
+                //}
                 //Debug.Log(gametime);
                 LevelCompletedCanvas.GetComponentInChildren<Text>().text = gametime.ToString(".##");
                 completed = true;

@@ -10,7 +10,7 @@ public class GameData
 
     public GameData (LevelCompleted levelCompleted)
     {
-        level = levelCompleted.level;
+        level = levelCompleted.scene;
         //replace 3 with a dynamic variable that updates itself 
     }
     

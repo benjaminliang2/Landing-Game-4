@@ -635,6 +635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456f114104ff0464abead131640568d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfLevelData:
+    allLevelDataList: []
 --- !u!114 &263527461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456f114104ff0464abead131640568d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfLevelData:
+    allLevelDataList: []
 --- !u!114 &273524828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,9 +1166,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 263527460}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevelNumber
+      - m_Target: {fileID: 7813171829367298776, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1295,9 +1299,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 263527460}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevelNumber
+      - m_Target: {fileID: 7813171829367298776, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2247,9 +2251,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 263527460}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevelNumber
+      - m_Target: {fileID: 7813171829367298776, guid: 47ecbee1428e05c4ab9dabf2d3988947, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3370,6 +3374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456f114104ff0464abead131640568d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfLevelData:
+    allLevelDataList: []
 --- !u!114 &1789419540
 MonoBehaviour:
   m_ObjectHideFlags: 0
