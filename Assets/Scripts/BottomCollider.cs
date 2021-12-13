@@ -10,6 +10,7 @@ public class BottomCollider : MonoBehaviour
     {
         playerDied = true;
         //disable the player gameobject instead of the right half and left half of the player. 
+        //necessary to disable payer input of rocket if player is crashed 
         collision.gameObject.transform.parent.gameObject.SetActive(false);
         //Debug.Log(collision.gameObject.name);
 
