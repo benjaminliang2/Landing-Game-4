@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Camera cameraPrefab;
     [SerializeField] GameObject backgroundPrefab;
     [SerializeField] Canvas startMenuCanvas;
+    [SerializeField] GameObject pauseMenu;
     //[SerializeField] CameraPanToLand cameraPanToLand;
     ListOfLevelData listOfLevelData;
 
@@ -114,6 +115,11 @@ public class GameManager : MonoBehaviour
         SaveSystem.DeleteGameData();
     }
 
+    public void DisplayPauseButton()
+    {
+
+    }
+
     //I need to assign GoToStartMenu() to a button click so that it triggers the 
     //StartMenuClicked delegate. 
     public void GoToStartMenu()
@@ -157,6 +163,8 @@ public class GameManager : MonoBehaviour
             Instantiate(player, transform.position, Quaternion.identity);            
             Instantiate(levelFailed, transform.position, Quaternion.identity);
             Instantiate(levelCompleted, transform.position, Quaternion.identity);
+            Instantiate(pauseMenu, transform.position, Quaternion.identity);
+            
         }
     }
 }

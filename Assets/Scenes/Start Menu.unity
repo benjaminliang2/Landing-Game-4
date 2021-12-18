@@ -241,6 +241,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1630396586572422089, guid: f478c4d9b2ef4cd4b908ae53b59eb2c7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630396586572422094, guid: f478c4d9b2ef4cd4b908ae53b59eb2c7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1630396587760997250, guid: f478c4d9b2ef4cd4b908ae53b59eb2c7, type: 3}
       propertyPath: m_Name
       value: Start Menu Canvas
